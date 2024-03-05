@@ -1,0 +1,7 @@
+node_modules
+.yarn
+private_key.pem
+public_key.pem
+.idea
+.vscode
+.DS_Store
