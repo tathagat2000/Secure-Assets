@@ -5,7 +5,7 @@ const fs = require('fs');
 const crypto = require('crypto');
 
 const app = express();
-app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
+app.use(express.urlencoded({ extended: true })); 
 
 const publicKey = fs.readFileSync('./public_key.pem', 'utf8');
 
@@ -31,7 +31,6 @@ app.get('/imgs/*', (req, res) => {
         res.sendFile(path.join(__dirname, 'public', 'imgs', req.params[0]));
         return;
     }
-
     res.status(403).send('Access Denied');
 })
 

@@ -43,6 +43,10 @@ app.get('/dashboard', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'dashboard.html'));
 });
 
+app.get('/service-worker.js',(req,res)=>{
+    res.sendFile(path.join(__dirname, 'public', 'service-worker.js'))
+})
+
 function signMessage(message){
     const sign = crypto.createSign('RSA-SHA256');
     sign.update(message);
