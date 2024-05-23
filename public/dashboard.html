@@ -47,8 +47,7 @@
         <input type="submit" value="Logout">
     </form>
     <div class="feed-item">
-        <img id="img1" src="http://localhost:4000/imgs/abstract.jpeg" alt="Abstract" class="feed-image"
-            referrerpolicy="no-referrer">
+        <img id="img1" src="http://localhost:4000/imgs/abstract.jpeg" alt="Abstract" class="feed-image">
         <div class="feed-text">
             <h3>Feed Item 1</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -63,26 +62,10 @@
     </div>
     <script>
         if ("serviceWorker" in navigator) {
-            navigator.serviceWorker
-                .register("/service-worker.js")
-                .then((registration) => {
-                    registration.addEventListener("updatefound", () => {
-                        // If updatefound is fired, it means that there's
-                        // a new service worker being installed.≠
-                        const installingWorker = registration.installing;
-                        console.log(
-                            "A new service worker is being installed:",
-                            installingWorker,
-                        );
-                    });
-                })
-                .catch((error) => {
-                    console.error(`Service worker registration failed: ${error}`);
-                });
+            navigator.serviceWorker.register("/service-worker.js")
         } else {
             console.error("Service workers are not supported.");
         }
-
     </script>
 
 </body>
