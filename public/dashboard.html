@@ -61,8 +61,12 @@
         </div>
     </div>
     <script>
+        const tags = ["/imgs", "/cdn", "/xyz"]
         if ("serviceWorker" in navigator) {
             navigator.serviceWorker.register("/service-worker.js")
+            navigator.serviceWorker.ready.then((registration) => {
+                registration.active.postMessage(tags);
+            });
         } else {
             console.error("Service workers are not supported.");
         }
