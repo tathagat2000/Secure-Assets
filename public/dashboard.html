@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,17 +9,20 @@
         * {
             box-sizing: border-box;
         }
+
         .feed-item {
             display: flex;
             align-items: center;
             margin-bottom: 20px;
         }
+
         .feed-image {
             width: 100px;
             height: 100px;
             margin-right: 20px;
             object-fit: cover;
         }
+
         .feed-text {
             flex: 1;
         }
@@ -31,39 +35,31 @@
             border-radius: 5px;
             cursor: pointer;
         }
+
         input[type="submit"]:hover {
             background-color: #ff5a8e;
         }
     </style>
 </head>
+
 <body>
     <form action="/logout" method="post" style="margin-bottom: 10px;">
         <input type="submit" value="Logout">
     </form>
     <div class="feed-item">
-        <img id="img1" data-src="http://cdn.company.com:4000/imgs/abstract.jpeg" alt="Abstract" class="feed-image">
+        <img id="img1" src="http://localhost:4000/imgs/abstract.jpeg" alt="Abstract" class="feed-image">
         <div class="feed-text">
             <h3>Feed Item 1</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
     </div>
-
     <div class="feed-item">
-        <img id="img2" data-src="http://cdn.company.com:4000/imgs/human.jpeg" alt="Human" class="feed-image">
+        <img id="img2" src="http://localhost:4000/imgs/human.jpeg" alt="Human" class="feed-image">
         <div class="feed-text">
             <h3>Feed Item 2</h3>
             <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
     </div>
-    <script>
-        const imgEl1 = document.getElementById('img1');
-        imgEl1.src = `/api/signed-asset-url?assetUrl=${encodeURIComponent(imgEl1.dataset.src)}`;
-
-        const imgEl2 = document.getElementById('img2');
-        imgEl2.src = `/api/signed-asset-url?assetUrl=${encodeURIComponent(imgEl2.dataset.src)}`;
-    </script>
-
-    <!-- Add more feed items as needed -->
-
 </body>
+
 </html>

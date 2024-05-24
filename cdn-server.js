@@ -5,7 +5,7 @@ const fs = require('fs');
 const crypto = require('crypto');
 
 const app = express();
-app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
+app.use(express.urlencoded({ extended: true })); 
 
 const publicKey = fs.readFileSync('./public_key.pem', 'utf8');
 
@@ -20,7 +20,6 @@ function verify(message, signature){
 app.get('/imgs/*', (req, res) => {
     const signature = decodeURIComponent(req.query.signature);
     const expiry = req.query.expiry;
-
     const pathWithoutQuery = req.originalUrl.split('?')[0];
 
     // Construct the full URL without query parameters
@@ -31,7 +30,6 @@ app.get('/imgs/*', (req, res) => {
         res.sendFile(path.join(__dirname, 'public', 'imgs', req.params[0]));
         return;
     }
-
     res.status(403).send('Access Denied');
 })
 
