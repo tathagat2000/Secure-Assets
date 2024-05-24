@@ -59,7 +59,7 @@ app.get('/api/signed-asset-url', (req, res) => {
         res.status(401).send('Unauthenticated.');
         return;
     }
-
+    
     const fiveSeconds = 5 * 1000;
     const expiry = Date.now() + fiveSeconds;
     const message = `${req.query.assetUrl}-${expiry}`;

@@ -20,7 +20,6 @@ function verify(message, signature){
 app.get('/imgs/*', (req, res) => {
     const signature = decodeURIComponent(req.query.signature);
     const expiry = req.query.expiry;
-
     const pathWithoutQuery = req.originalUrl.split('?')[0];
 
     // Construct the full URL without query parameters
